@@ -1,0 +1,24 @@
+<section>
+  <div class="container">
+    <table class="table is-striped is-fullwidth is-hoverable">
+      <thead>
+        <tr>
+          <td>
+            Name
+          </td>
+          <td>App Type</td>
+          <td>FHIR Spec</td>
+          <td>Client ID</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let client of clientService.clients' routerLink="/detail/{{client.id}}">
+          <td>{{client.name}}</td>
+          <td>{{client.appType}}</td>
+          <td>{{client.fhirSpec}}</td>
+          <td>{{client.clientId}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

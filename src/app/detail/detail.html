@@ -1,0 +1,28 @@
+<section>
+  <div *ngIf="client" class="container">
+    <h1>{{client.name}}</h1>
+    <button class="button is-primary" (click)="showModal()">Test</button>
+  </div>
+</section>
+
+<div class="modal" [ngClass]="{'is-active': modalIsActive}">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">{{client.name}}</p>
+      <button class="button" (click)="showModal()">Cancel</button>
+    </header>
+    <section class="modal-card-body">
+      <div class="tile is-ancestor">
+        <div class="tile is-12 is-vertical is-parent">
+          <a class="tile is-child box" *ngFor='let context of contexts' [href]="'http://localhost:8000/juxly/launch.html?iss=http%3A%2F%2Flocalhost:3000%2Fapi&launch=' + context.hash" target="_blank">
+            <p class="title">{{context.name}}</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non</p>
+          </a>
+        </div>
+      </div>
+   </section>
+    <footer class="modal-card-foot">
+    </footer>
+  </div>
+</div>
